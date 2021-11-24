@@ -1,0 +1,354 @@
+The no code product analytics playbook for Bubble
+
+
+
+
+
+
+![alt_text](images/image1.png "image_tooltip")
+
+
+
+    From no code app builder to no code data analysis
+
+Once you launch your product out to the world and have users using it,  it’s already time to improve it. 
+
+To do so, you need to analyze your user behaviour. Why? Because data does not lie. It tells you, with precision, what users did.
+
+ \
+This is referred to as data analysis or analytics. It consists of two steps:
+
+
+
+1. Collecting data on important actions users take in your product
+2. Analysing these actions and learn from them
+
+With Bubble you can build products and analyze them without writing a single line of code. 
+
+If you are a founder or work in a product team, or simply want to leverage your product usage data, then this playbook is for you. 
+
+In this playbook you will learn: 
+
+
+[TOC]
+
+
+Let’s get started! 🤘
+
+
+# How data works
+
+Put simply, when your product is instrumented, data is flowing every time a user is using it.
+
+There are two ways to organize of data: 
+
+
+
+1. event data 
+2. relational data
+
+<span style="text-decoration:underline;">Event data</span>
+
+Event data describes actions performed in your product. They allow you to analyze what is happening in real time. 
+
+Event data is also called analytics data, or behaviour data.
+
+Event data comes in json format (Javascript). For instance a user that registered for an annual plan using Facebook may trigger this data (also called “event”):
+
+
+
+
+
+![alt_text](images/image2.png "image_tooltip")
+
+
+This data contains rich information about who your users are, and what they do. 
+
+If you assemble this kind of data in a proper way, there are only a few questions you can’t answer.
+
+<span style="text-decoration:underline;">Relational data</span>
+
+Relation data is stored in tables. Entities are things like users, products, accounts, posts, etc. 
+
+There is a separate table for each type of entity, and each table has columns to hold properties about the entities. Each entity has one row. In this example, entities are employees and departments.
+
+
+
+
+
+![alt_text](images/image3.png "image_tooltip")
+
+
+In the context of a product, relation data is good for capturing current states for your users and to quickly look up information (Hello SQL 👋).
+
+
+# How to instrument your product
+
+To leverage and learn from your product usage, **event data** is what you should use.
+
+The way it works is by labelling and mapping key user actions in your product to an event. 
+
+When you define a track event for a specific action (e.g. clicking on a specific button or filling out a form) every user that performs this action gets recorded. 
+
+The accuracy of this process will determine the accuracy of your analytics, ergo, the accuracy of your actionable insights. This is important to get right! 
+
+The other question is how do you know what to track? You should start with your core product actions. We’ll look into this question in more detail later in this article.
+
+
+# Why people use Customer Data Platforms, and why you should too
+
+Now that you know what a track event means, the question is what technology do you use to record one.
+
+There are four common ways to track your product today:
+
+
+
+* **Tag Management System (ex: Google Tag Manager)**: a tracking pixel tracking pixel that can be integrated with a  website or webapp. Their data is limited and usually feed into  marketing tools or even used to make dynamic changes to the website or application itself. _A shallow technology for marketers._ \
+
+* **Direct integration (ex: Amplitude javascript)**: a javascript snippet or SDK provided by the product analytics platform directly. _Used to be the norm._ \
+
+* **Customer Data Platform (ex: Segment)**: a platform that allows users to collect and organise user behaviour. Data can then be distributed to other tools for many use cases, including marketing, product analytics etc. _The new norm._ \
+
+* **In-house tracking**: usually a piece of custom javascript that does not rely on external tools. _The norm for very large companies._
+
+
+
+
+
+![alt_text](images/image4.png "image_tooltip")
+
+
+Today, Customer Data Platforms (CDP) are becoming more and more popular because they are enabling software companies to do business like a “pro”. In other words they enable you to record rich data about the users and their behaviours.
+
+It’s no surprise that revenue in the CDP industry has grown  60 % from 2019 to 2021. 
+
+Segment is currently the industry leader in the  CDP space with more than 20K companies using them. It has a marketplace full of industry leading marketing and product tools that customers can integrate with. 
+
+Great news, [Bubble has a Segment integration](https://bubble.io/integration/segment). As a Bubble user you won’t need any code to track your user behaviours like a pro.
+
+Here is how.
+
+
+# How to set up Segment in Bubble
+
+Bubble has an incredibly easy to use integration with Segment.
+
+This will let you track all the events you require to get started with instrumenting your product.
+
+
+
+1. <span style="text-decoration:underline;">Segment Track events </span>
+
+As mentioned, to understand what your users are doing, you have to track their actions.
+
+A best practice consists in flagging your users' more important action with a specific event. This typically includes
+
+ 
+
+
+
+* User signed up
+* Plan purchased
+* Friend / colleague invited
+
+☝️ Note that we’re using a past tense to remove the doubt about whether the action was already performed by your users or not. 
+
+Using a _no code _tool like Bubble, you won’t have to deal with code. This is how it works.
+
+
+
+2. <span style="text-decoration:underline;">Connect Bubble to Segment</span>
+1. Firstly, [create a Segment account](https://app.segment.com/signup/) (Free plan available) \
+
+2. You now need to connect a source to it (your Bubble app). Paste your Bubble web app URL into Segment and click “Add a source”
+
+
+
+
+![alt_text](images/image5.png "image_tooltip")
+
+
+
+
+3. Now you need to find your** Segment API key**. To find it go to:  “Source” > “Settings” > “API keys” > “Write Key” . It’s the key to all of your data! \
+
+4. **Copy it and save it somewhere safe** \
+
+5. Go back to your app on Bubble. On the side bar, click “Plugins”, search Segment and install it with just a click. \
+
+6. Paste your Key (it’s called the “Write Key”) in the panel and get started with the tracking 
+
+
+
+
+
+![alt_text](images/image6.png "image_tooltip")
+
+
+
+# How to instrument your Bubble app with Segment
+
+The last step before analysing your data is tracking your user behaviour. Segment will only track what you tell it to.
+
+Let’s walk you through an example. 
+
+Let’s say that you want to track how many users submitted their email on your waiting list.
+
+To track this in Bubble:
+
+
+
+1. Open your app in the Bubble editor. Pick the element of your product you want to track.  In our case the “Submit” button (you should be in the “Design” mode in Bubble) \
+
+2. Double click on it \
+
+3. When you are in the settings for this element, under the “appearance” tab, select the “Start/Edit the workflow”.
+4.  Now that you are in the “Workflow” menu you can add the Segment track event \
+
+    1. Click “Click here to add an action” 
+    2. Select “Analytics”
+    3. Click “Track an event with Segment”
+5. Name this event in a meaningful way and let Segment start working for you.
+
+    ```
+💡 Pro tips: If you do not have your own standard syntax in naming data, we recommend snake_case (e.g. homepage_song_played). All lowercase removes the possibility of causing instrumentation errors.
+
+You should also take into consideration the length of your names, concise event names will make data much more readable and easy to understand.
+```
+
+
+6. Check if the event is properly triggered
+
+After you implement an event, make sure that everything is working fine and that the event you just implemented is being triggered. 
+
+To do that: \
+
+
+
+
+1. Go on your product and take the action that is meant to trigger the event \
+
+2. Then head to Segment and log in \
+
+3. Click “Sources” on the sidebar and pick the right one \
+
+4. Then open the “Schema” section 
+
+You should see the following page. Make sure the event you just added appears in the list and that it has some occurrences.
+
+Pumping events in Segment without code feels like magic. What you just achieved is what large companies invested millions of dollars to achieve a few years ago.
+
+Repeat this process for all the key product actions you want to track! 🔁  
+
+Naturally, you might ask yourself: “Now what? What should I do with it?” 
+
+Here is what every great company does….
+
+
+# How to analyze your data to improve your product
+
+You don’t need to be an analyst anymore to understand user behavior. 
+
+You also don’t need to spend hours on this. 
+
+In fact, you don’t even need to have a developer on your team.
+
+You already have Segments in place with all the events so you’re ready to go!
+
+
+
+1. <span style="text-decoration:underline;">Connect Segment to a relevant data visualisation tool</span>
+
+The analytics space can be quite confusing so we’ll clarify it for you.
+
+
+
+
+
+
+![alt_text](images/image7.png "image_tooltip")
+
+
+There are four types of data visualisation to which you can connect Segment to better understand your product:
+
+
+
+* Plug & play analytics (no-code), like [June.so](https://june.so/)  \
+
+* Marketing analytics, they include [Google Analytics](https://analytics.google.com/analytics/web/) and [Clarisight](https://clarisights.com/)
+* Business intelligence tools: they let you explore your data (usually with SQL). They include [Tableau](https://www.tableau.com/), [Looker](https://looker.com/) and our personal favourite [Metabase](https://www.metabase.com/).  \
+
+* Product analytics: similarly to BI tools they offer to explore your data starting from hypotheses. But their visualisation is tailored for product teams. They include [Amplitude](https://amplitude.com/) and [Mixpanel](https://mixpanel.com/).
+
+You can browse and set up your favourite tool right from the [Segment destination catalog](https://segment.com/catalog/analytics/).
+
+For now we’ll go with [June](https://june.so/) (disclaimer I work there 🙌 ) which provides plug & play reports which are relevant if you’re getting started. 
+
+
+# The most relevant metrics for your product
+
+Choosing the right metrics for your product is not an easy task. New metrics pop up every day but there is a set of metrics relevant for most businesses, here they are:
+
+
+
+* **Active users**
+    * <span style="text-decoration:underline;">Definition</span>: How many users get your product's unique value. It's very common for organizations to track daily active users (DAU), weekly active users (WAU), and monthly active users (MAU). \
+ \
+<span style="text-decoration:underline;">Why it matters:</span> It’s the most basic way of measuring user engagement and making sure you’re growing your user base in a meaningful way.  \
+
+    * <span style="text-decoration:underline;">How to visualize it</span>: 
+* **User retention**
+    * <span style="text-decoration:underline;">Definition</span>: Retention is a measure of how many users return to your product over time from when they sign up. \
+
+    * <span style="text-decoration:underline;">Why it matters</span>: It tells you if the same user actually comes back again. Retention refers to continuous usage, which means your solution keeps generating value over time. When your business retains its users, your revenue compounds. 
+    * <span style="text-decoration:underline;">How to visualize it</span>: \
+
+* **Feature Audit \
+**
+    * <span style="text-decoration:underline;">Definition</span>: Find out which features are used, and in which proportion
+    * <span style="text-decoration:underline;">Why it matters</span>: Features Audit is an easy but powerful product management tool to map your features. It helps discover the features to develop or improve and focus on that matter.  \
+
+    * <span style="text-decoration:underline;">How to visualize it</span>:
+
+        ```
+💡 Going further: To help you go further we've collected a library of the most relevant metrics for your business. Check it out here
+```
+
+
+
+
+# Conclusion
+
+There is only one takeaway from this playbook: 
+
+
+    If you’re building your app with Bubble you can analyse your user behaviour like a pro without any code.
+
+To leverage event data you can connect a state of the art CDP like Segment in 2-click.
+
+You can then forward your data to your favourite data visualization tool, again without engineering work required. Plug & play analytics tools like June can get you the main analytics for your industry within a few minutes.
+
+**<span style="text-decoration:underline;">Below is not in the article</span>**
+
+**Bonus: **
+
+Luckily, to get metrics like the ones above, easy to use product analytics tools like [June](https://june.so/) (event-centric) or** **[Metabase](https://www.metabase.com/)** **(data-centric) are available to you to complete your _no code _! 
+
+To set up June you only need to [connect your Segment account](https://intercom.help/junedotso/en/articles/4804643-connect-segment-to-june-recommended) (the same account you used in Bubble) and you are good to go. 
+
+Alternatively Metabase requires a fully functional production database which is much more complex to setup and therefore, it’s beyond the scope of this playbook
+
+**How future look like?**
+
+Well future is now! 
+
+Without knowing one single line of code today you can:
+
+
+
+1. Create your webapp with** [Bubble](https://bubble.io/)**
+2. Set up a CDP and track events with **[Segment](https://segment.com/)** without code
+3. Create a wonderful customer support service with **[Intercom](https://www.intercom.com/articles) **
+4. Leveraging product-usage data with **[June](june.so)**
+
+Now the only limit is your imagination. You can’t use the excuse “I don’t have the skills for…” anymore 😉
